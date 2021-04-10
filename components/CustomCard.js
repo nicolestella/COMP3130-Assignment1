@@ -3,7 +3,7 @@
 import React from "react";
 import { Card, Title, Paragraph, Button } from "react-native-paper";
 
-export default function CustomCard({ travelSpot, onPress }) {
+export default function CustomCard({ travelSpot, onPress, onSave }) {
 	const imgSrc =
 		"https://source.unsplash.com/collection/" + travelSpot.collection;
 
@@ -19,8 +19,10 @@ export default function CustomCard({ travelSpot, onPress }) {
 			</Card.Content>
 			<Card.Actions>
 				{/* The save button */}
-				<Button mode='contained'>Save</Button>
-				<Button>Learn more</Button>
+				<Button mode='contained' onPress={onSave}>
+					Save
+				</Button>
+				<Button onPress={onPress}>Learn more</Button>
 			</Card.Actions>
 		</Card>
 	);

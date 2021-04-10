@@ -8,7 +8,9 @@ function Travels(props) {
 	const { colors } = props.theme;
 	const { navigate } = props.navigation;
 
-	const cardItem = ({ item }) => <CustomCard travelSpot={item} />;
+	const cardItem = ({ item }) => (
+		<CustomCard travelSpot={item} onPress={() => navigate("Details", item)} />
+	);
 
 	const styles = StyleSheet.create({
 		container: {
