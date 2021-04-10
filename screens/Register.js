@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
-import { withTheme, TextInput, Button } from 'react-native-paper';
+import { withTheme, TextInput, Button, Snackbar } from 'react-native-paper';
 import { MaterialIcons } from '@expo/vector-icons';
 //import custom components
 import BigLogo from '../components/BigLogo'
@@ -11,8 +11,14 @@ import FullWidthButton from '../components/FullWidthButton';
 function Register(props) {
   const { colors } = props.theme;
   const { navigate } = props.navigation;
+
   const [name, setName]= React.useState('');
   const [password, setPassword]= React.useState('');
+
+  // For snackbar functionality
+  const [visible, setVisible]= React.useState(false);
+  const onToggleSnackBar= () => setVisible(!visible);
+  const onDismissSnackBar= () => setVisible(false); 
 
   const styles = StyleSheet.create({
     container: {
@@ -29,7 +35,7 @@ function Register(props) {
     backIcon: {
       position: 'absolute',
       top: 40,
-      left: 0,
+      right: 0,
     }  
   })
 
@@ -43,7 +49,7 @@ function Register(props) {
         )}
         style={styles.backIcon}
         onPress={() => {
-          navigate('Welcome');
+          props.navigation.popToTop();
         }}
       />
 
@@ -68,9 +74,27 @@ function Register(props) {
       />
       
       {/* Button that will allow registration */}
-      <FullWidthButton colors={colors.accent}>
+      <FullWidthButton 
+        colors={colors.accent} 
+        onPress={() => {
+          onToggleSnackBar
+        }}
+      >
         REGISTER
       </FullWidthButton>
+
+      <Snackbar
+        visible={visible}
+        onDsimiss={onDismissSnackBar}
+        action={{
+          label: 'OK',
+          onPress: () => {
+            //onDismissSnackBar
+          }
+        }}
+      >
+        Account registered!
+      </Snackbar>
     </View>
   );
 }

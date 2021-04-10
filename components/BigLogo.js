@@ -1,8 +1,11 @@
-import React from 'react';
-import { Image } from 'react-native';
+import React from "react";
+import { Image } from "react-native";
 
-export default function BigLogo({style}) {
-  return (
-    <Image source={require('../assets/icons/Logo.png')} style={[{width: 300, height: 300, marginBottom: '10%'}, style]}/>
-  );
+export default function BigLogo({ style }) {
+	return (
+		<Image
+			source={require("../assets/icons/Logo.png")}
+			style={[{ width: 300, height: 300, marginBottom: "10%" }, style]}
+		/>
+	);
 }

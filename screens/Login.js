@@ -11,6 +11,7 @@ import FullWidthButton from '../components/FullWidthButton';
 function Login(props) {
   const { colors } = props.theme;
   const { navigate } = props.navigation;
+
   const [name, setName]= React.useState('');
   const [password, setPassword]= React.useState('');
 
@@ -29,21 +30,21 @@ function Login(props) {
     backIcon: {
       position: 'absolute',
       top: 40,
-      left: 0,
+      right: 0,
     } 
   })
 
   return (
     <View style={styles.container}>
 
-      {/* The back button */}
+      {/* The close button */}
       <Button
         icon={() => (
           <MaterialIcons name="close" size={50} color="black" />
         )}
         style={styles.backIcon}
         onPress={() => {
-          navigate('Welcome');
+          props.navigation.popToTop();
         }}
       />
 
@@ -76,7 +77,12 @@ function Login(props) {
       </Button>
       
       {/* Button that will allow login */}
-      <FullWidthButton colors={colors.accent}>
+      <FullWidthButton 
+        colors={colors.accent}
+        onPress={()=> {
+          navigate('AccountStack');
+        }}  
+      >
         LOGIN
       </FullWidthButton>
     </View>
