@@ -22,6 +22,7 @@ function TravelDetails({ route }) {
 			<Title style={styles.title}>{travelSpot.title}</Title>
 			<Paragraph style={styles.description}>{travelSpot.description}</Paragraph>
 			<FlatList
+				key={travelSpot.tags}
 				style={{ flexDirection: "column" }}
 				horizontal
 				data={travelSpot.tags}

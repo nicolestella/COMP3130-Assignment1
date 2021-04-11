@@ -2,7 +2,7 @@ import React from "react";
 import { StyleSheet, View, ScrollView, FlatList } from "react-native";
 import { withTheme, Title, Paragraph, Card, Button } from "react-native-paper";
 import CustomCard from "../components/CustomCard";
-import TravelSpots from "../content/TravelSpots";
+import TravelSpots from "../data/TravelSpots";
 
 function Travels(props) {
 	const { colors } = props.theme;

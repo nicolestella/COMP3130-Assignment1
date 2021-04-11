@@ -7,7 +7,7 @@ import Travels from "../screens/Travels";
 import TravelDetails from "../screens/TravelDetails";
 //import header components
 import Header from "../components/Header";
-import { SimpleLineIcons } from "@expo/vector-icons";
+import LogoutButton from "../components/LogoutButton";
 import { AntDesign } from "@expo/vector-icons";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { MaterialIcons } from "@expo/vector-icons";
@@ -30,9 +30,7 @@ export default function AccountStackNavigator() {
 				options={({ navigation }) => ({
 					headerTitle: () => <Header title='My Account' />,
 					// The logout button
-					headerBackImage: () => (
-						<SimpleLineIcons name='logout' size={24} color='black' />
-					),
+					headerLeft: () => <LogoutButton />,
 					// The add button
 					headerRight: () => (
 						<Button onPress={() => navigation.navigate("Travels")}>
@@ -43,6 +41,7 @@ export default function AccountStackNavigator() {
 				name={"My Account"}
 				component={MyAccount}
 			/>
+
 			{/* Travels screen */}
 			<AccountStack.Screen
 				options={{
@@ -63,6 +62,7 @@ export default function AccountStackNavigator() {
 				name={"Travels"}
 				component={Travels}
 			/>
+
 			{/* The travel details screen */}
 			<AccountStack.Screen name={"Details"} component={TravelDetails} />
 		</AccountStack.Navigator>
