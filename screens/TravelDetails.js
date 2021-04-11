@@ -11,7 +11,7 @@ function TravelDetails({ route }) {
 	};
 
 	const renderItem = ({ item }) => (
-		<Chip key={item} style={styles.chip}>
+		<Chip key={item.id + item.tag} style={styles.chip}>
 			{item}
 		</Chip>
 	);
@@ -22,16 +22,12 @@ function TravelDetails({ route }) {
 			<Title style={styles.title}>{travelSpot.title}</Title>
 			<Paragraph style={styles.description}>{travelSpot.description}</Paragraph>
 			<FlatList
-				key={travelSpot.tags}
 				style={{ flexDirection: "column" }}
 				horizontal
 				data={travelSpot.tags}
 				renderItem={renderItem}
-				keyExtractor={(item) => item.id}
+				keyExtractor={(item) => item}
 			/>
-			<Button mode='contained' style={styles.button}>
-				Save
-			</Button>
 		</ScrollView>
 	);
 }
@@ -59,7 +55,6 @@ const styles = StyleSheet.create({
 		margin: 5,
 	},
 	button: {
-		height: 60,
 		width: 200,
 		justifyContent: "center",
 		alignSelf: "center",

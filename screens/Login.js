@@ -14,12 +14,33 @@ import { MaterialIcons } from "@expo/vector-icons";
 import BigLogo from "../components/BigLogo";
 import FullWidthButton from "../components/FullWidthButton";
 import Users from "../data/Users";
-import { AuthContext } from "../components/Context";
+import DataManager from "../data/DataManager";
 
 function Login(props) {
 	const { colors } = props.theme;
 	const { navigate } = props.navigation;
 	const newUser = props.route.params;
+
+	// Function to check if inputted credentials matches any stored credentials
+	const validateUser = () => {
+		return (
+			Users.filter(
+				(user) => user.name === data.name && user.password === data.password
+			).length > 0
+		);
+	};
+
+	// Function to get User object based on the name
+	const getUser = ({ name }) => {
+		return Users.find((user) => user.name === name);
+	};
+
+	// Pass user data using DataManager
+	const createUser = ({ name }) => {
+		let commonData = DataManager.GetInstance();
+		let userID = getUser({ name }).id;
+		commonData.SetUserID(userID);
+	};
 
 	// Data entry
 	const [data, setData] = React.useState({
@@ -27,39 +48,6 @@ function Login(props) {
 		password: "",
 		isValidData: true,
 	});
-
-	// Login handling
-	const { login } = React.useContext(AuthContext);
-
-	const loginHandle = (username, password) => {
-		// Loop through the array of registered users and check if the inputted
-		// data matches any existing records.
-		let foundUser;
-		for (var i = 0; i < Users.length; i++) {
-			if (username == Users[i].name && password == Users[i].password) {
-				foundUser = true;
-			}
-		}
-
-		// Check if the input name matches existing records or it matches the
-		// newly registered record
-		if (!foundUser && !newUser) {
-			// If not, display error message.
-			setData({ isValidData: false });
-		}
-		// Otherwise, check if there is any newly registered record
-		else if (!foundUser && newUser) {
-			//If so, check if the input matches that newly registered record
-			const foundNewUser =
-				username == newUser.name && password == newUser.password;
-			// If it does, log the user in
-			if (foundNewUser) {
-				login(foundNewUser);
-			}
-		} else {
-			login(foundUser);
-		}
-	};
 
 	const styles = StyleSheet.create({
 		container: {
@@ -144,7 +132,12 @@ function Login(props) {
 			<FullWidthButton
 				colors={colors.accent}
 				onPress={() => {
-					loginHandle(data.name, data.password);
+					if (validateUser()) {
+						createUser(data);
+						navigate("AccountStack");
+					} else {
+						setData({ isValidData: false });
+					}
 				}}
 			>
 				LOGIN

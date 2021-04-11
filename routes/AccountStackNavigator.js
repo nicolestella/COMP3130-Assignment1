@@ -1,16 +1,17 @@
+// The navigation stack containing accounts, travel list, and travel details
 import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
 import { Button } from "react-native-paper";
 // import screens
 import MyAccount from "../screens/MyAccount";
-import Travels from "../screens/Travels";
+import Browse from "../screens/Browse";
 import TravelDetails from "../screens/TravelDetails";
+import AddListing from "../screens/AddListing";
 //import header components
 import Header from "../components/Header";
-import LogoutButton from "../components/LogoutButton";
-import { AntDesign } from "@expo/vector-icons";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
-import { MaterialIcons } from "@expo/vector-icons";
+import { AntDesign } from "@expo/vector-icons";
+import { SimpleLineIcons } from "@expo/vector-icons";
 //import styling
 import theme from "../styles/theme";
 
@@ -30,11 +31,19 @@ export default function AccountStackNavigator() {
 				options={({ navigation }) => ({
 					headerTitle: () => <Header title='My Account' />,
 					// The logout button
-					headerLeft: () => <LogoutButton />,
+					headerLeft: () => (
+						<Button
+							onPress={() => navigation.navigate("AuthStack")}
+							size={24}
+							color='#000'
+						>
+							<SimpleLineIcons name='logout' size={24} />
+						</Button>
+					),
 					// The add button
 					headerRight: () => (
-						<Button onPress={() => navigation.navigate("Travels")}>
-							<AntDesign name='plus' size={24} color='black' />
+						<Button onPress={() => navigation.navigate("Browse")}>
+							<AntDesign name='search1' size={24} color='black' />
 						</Button>
 					),
 				})}
@@ -42,10 +51,13 @@ export default function AccountStackNavigator() {
 				component={MyAccount}
 			/>
 
-			{/* Travels screen */}
+			{/* Add listings screen */}
+			<AccountStack.Screen name='Add Listing' component={AddListing} />
+
+			{/* Browse screen */}
 			<AccountStack.Screen
 				options={{
-					headerTitle: () => <Header title='Travels' />,
+					headerTitle: () => <Header title='Browse' />,
 					headerBackImage: () => (
 						<MaterialCommunityIcons
 							name='account-circle-outline'
@@ -53,14 +65,10 @@ export default function AccountStackNavigator() {
 							color='black'
 						/>
 					),
-					headerRight: () => (
-						<Button>
-							<MaterialIcons name='search' size={32} color='black' />
-						</Button>
-					),
+					headerRight: () => <Button />,
 				}}
-				name={"Travels"}
-				component={Travels}
+				name={"Browse"}
+				component={Browse}
 			/>
 
 			{/* The travel details screen */}

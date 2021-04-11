@@ -1,14 +1,14 @@
 module.exports = [
 	{
-		id: "0",
+		id: "user1",
 		name: "johndoe",
 		password: "12345",
-		userToken: "tokenJohnDoe",
+		savedTravels: ["0", "5", "6"],
 	},
 	{
-		id: "1",
+		id: "user2",
 		name: "janepoe",
 		password: "password",
-		userToken: "tokenJanePoe",
+		savedTravels: ["4", "1", "7"],
 	},
 ];

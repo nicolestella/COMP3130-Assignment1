@@ -2,9 +2,10 @@ module.exports = [
 	{
 		id: "0",
 		title: "Disneyland California",
+		country: "USA",
 		keyword: "theme park",
 		collection: "3446667",
-		tags: ["USA", "Theme Park", "Family"],
+		tags: ["Fun", "Theme Park", "Family"],
 		description:
 			"Disneyland, amusement park in Anaheim, California, featuring characters, " +
 			"rides, and shows based on the creations of Walt Disney and the Disney Company. " +
@@ -16,9 +17,10 @@ module.exports = [
 	{
 		id: "1",
 		title: "Sydney Opera House",
+		country: "Australia",
 		keyword: "art",
 		collection: "9740328",
-		tags: ["Australia", "Sightseeing", "Art"],
+		tags: ["Urban", "Sightseeing", "Art"],
 		description:
 			"The Sydney Opera House is a multi-venue performing arts centre at Sydney Harbour " +
 			"located in Sydney, New South Wales, Australia. It is one of the 20th century's " +
@@ -30,9 +32,10 @@ module.exports = [
 	{
 		id: "2",
 		title: "Marina Bay Sands",
+		country: "Singapore",
 		keyword: "hotel",
 		collection: "6803095",
-		tags: ["Singapore", "Hotel", "Family"],
+		tags: ["Food", "Hotel", "Urban"],
 		description:
 			"Marina Bay Sands stands out as a stunning icon of Singapore’s ever-growing city skyline. " +
 			"The 3 skyscrapers have – what seems to be – a cruise ship balancing precariously across the top. " +
@@ -45,9 +48,10 @@ module.exports = [
 	{
 		id: "3",
 		title: "Very Cool Restaurant",
+		country: "Worldwide",
 		keyword: "food",
 		collection: "4308781",
-		tags: ["Worldwide", "Food", "Drinks"],
+		tags: ["Fun", "Food", "Drinks"],
 		description:
 			"Experience the best of Michelin starred dining Worldwide, with exquisite dishes highlighting modern " +
 			"French-inspired cuisine, delivered with flawless service in beautiful surroundings. Our flagship destination, Very Cool " +
@@ -59,9 +63,10 @@ module.exports = [
 	{
 		id: "4",
 		title: "Grand Canyon",
+		country: "USA",
 		keyword: "nature",
 		collection: "4252461",
-		tags: ["USA", "Nature", "Sightseeing"],
+		tags: ["Family", "Nature", "Sightseeing"],
 		description:
 			"The Grand Canyon is a mile-deep gorge in northern Arizona. Scientists estimate the canyon may have formed 5 to 6 million years ago " +
 			"when the Colorado River began to cut a channel through layers of rock. Humans have inhabited the area in and around the canyon since " +
@@ -73,9 +78,10 @@ module.exports = [
 	{
 		id: "5",
 		title: "Great Barrier Reef",
+		country: "Australia",
 		keyword: "nature",
 		collection: "3345483",
-		tags: ["Australia", "Nature", "Sightseeing"],
+		tags: ["Family", "Nature", "Sightseeing"],
 		description:
 			"One of Australia’s most remarkable natural gifts, the Great Barrier Reef is blessed with the breathtaking beauty of the world’s largest coral " +
 			"reef. The reef contains an abundance of marine life and comprises of over 3000 individual reef systems and coral cays and literally hundreds of " +
@@ -86,9 +92,10 @@ module.exports = [
 	{
 		id: "6",
 		title: "Singaporean Ramen",
+		country: "Singapore",
 		keyword: "food",
 		collection: "57856056",
-		tags: ["Singapore", "Food", "Drinks"],
+		tags: ["Fun", "Food", "Drinks"],
 		description:
 			"Presenting a new wave of modern Japanese cuisine, Akira Back thrills diners with the best of classic Japanese dishes woven with " +
 			"ingredients and flavours from Chef Akira Back's South Korean heritage as well as culinary influences and experiences from his upbringing in USA. " +
@@ -99,8 +106,9 @@ module.exports = [
 		id: "7",
 		title: "A Hotel Somewhere",
 		keyword: "hotel",
+		country: "Worldwide",
 		collection: "46255628",
-		tags: ["Worldwide", "Hotel", "Family"],
+		tags: ["Food", "Hotel", "Drinks"],
 		description:
 			"A Hotel Somewhere offers a front row seat to the corners of the globe. Discover your destination’s iconic landmarks, traditional celebrations and " +
 			"cultural delights - all with the peace-of-mind in knowing that A Hotel Somewhere is always at your fingertips. Stay well rested for your adventure with " +
