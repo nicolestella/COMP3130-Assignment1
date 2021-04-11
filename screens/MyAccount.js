@@ -11,12 +11,12 @@ import DataManager from "../data/DataManager";
 // Function to get the array of travel IDs for given user
 const getTravelIDs = () => {
 	let commonData = DataManager.GetInstance();
-	let id = commonData.GetUserID();
-	return commonData.GetTravelSpots(id);
+	return commonData.GetTravelSpots();
 };
 
 function MyAccount(props) {
 	const { navigate } = props.navigation;
+	const [data, setData] = React.useState();
 
 	// Save the array of travel IDs in this variable
 	const savedTravelIDs = getTravelIDs();
@@ -31,6 +31,10 @@ function MyAccount(props) {
 	const cardItem = ({ item }) => (
 		<CustomCard travelSpot={item} onPress={() => navigate("Details", item)} />
 	);
+
+	React.useEffect(() => {
+		setData(travels);
+	}, []);
 
 	const styles = StyleSheet.create({
 		container: {
@@ -64,7 +68,7 @@ function MyAccount(props) {
 
 			{/* The list of items */}
 			<FlatList
-				data={travels}
+				data={data}
 				renderItem={cardItem}
 				keyExtractor={(travelSpot) => travelSpot.id}
 			/>

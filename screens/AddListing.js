@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, View, FlatList } from "react-native";
+import { StyleSheet, View, FlatList, Alert } from "react-native";
 import { Picker } from "@react-native-picker/picker";
 import { withTheme, Paragraph, Button, IconButton } from "react-native-paper";
 import TravelSpots from "../data/TravelSpots";
@@ -7,16 +7,7 @@ import CustomCard from "../components/CustomCard";
 import DataManager from "../data/DataManager";
 import { AntDesign } from "@expo/vector-icons";
 
-// Function to get the array of travel IDs for given user
-const getTravelIDs = () => {
-	let commonData = DataManager.GetInstance();
-	let id = commonData.GetUserID();
-	return commonData.GetTravelSpots(id);
-};
-
 function AddListing(props) {
-	const savedTravels = getTravelIDs();
-
 	// Will show/hide the search bar
 	const [showSearch, setShowSearch] = React.useState(true);
 	const onToggleShowSearch = () => setShowSearch(!showSearch);
@@ -101,7 +92,50 @@ function AddListing(props) {
 	};
 
 	// Custom card component that displays each travel spot
-	const cardItem = ({ item }) => <CustomCard travelSpot={item} />;
+	const cardItem = ({ item }) => {
+		let commonData = DataManager.GetInstance();
+		let savedTravels = commonData.GetTravelSpots();
+		let alreadySaved = false;
+		for (var i = 0; i < savedTravels.length; i++) {
+			if (item.id === savedTravels[i]) {
+				alreadySaved = true;
+			}
+		}
+		return (
+			<CustomCard
+				travelSpot={item}
+				listingItem
+				isSaved={alreadySaved}
+				onPress={() => {
+					if (!alreadySaved) {
+						commonData.AddTravelSpot(item.id);
+						Alert.alert("Save listing?", "", [
+							{
+								text: "Cancel",
+							},
+							{
+								text: "Yes",
+								onPress: () => props.navigation.navigate("My Account"),
+							},
+						]);
+					} else {
+						Alert.alert(
+							"You've already saved this listing!",
+							"Try another one.",
+							[
+								{
+									text: "OK",
+								},
+							],
+							{
+								cancelable: true,
+							}
+						);
+					}
+				}}
+			/>
+		);
+	};
 
 	// Set Data and searchData when the component mounts
 	React.useEffect(() => {
@@ -129,7 +163,7 @@ function AddListing(props) {
 	return (
 		<View style={styles.container}>
 			{showSearch ? (
-				<View style={{ height: "40%", marginBottom: 20 }}>
+				<View style={{ height: "50%", marginBottom: 20 }}>
 					<Paragraph style={styles.heading}>Choose a country</Paragraph>
 					<View style={styles.pickerView}>
 						<Picker

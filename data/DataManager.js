@@ -28,6 +28,7 @@ export default class DataManager {
 
 	AddTravelSpot(id) {
 		this.savedTravels.push(id);
+		console.log(this.savedTravels);
 	}
 
 	RemoveTravelSpot(id) {
