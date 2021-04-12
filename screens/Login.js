@@ -19,7 +19,6 @@ import DataManager from "../data/DataManager";
 function Login(props) {
 	const { colors } = props.theme;
 	const { navigate } = props.navigation;
-	const newUser = props.route.params;
 
 	// Function to check if inputted credentials matches any stored credentials
 	const validateUser = () => {

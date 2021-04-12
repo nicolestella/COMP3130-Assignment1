@@ -2,6 +2,8 @@ import Users from "../data/Users";
 
 export default class DataManager {
 	static myInstance = null;
+	users = Users;
+	idCounter = 2;
 	userID = "";
 	savedTravels = [];
 
@@ -16,10 +18,29 @@ export default class DataManager {
 		return this.userID;
 	}
 
+	UserNameExists(name) {
+		const foundName = this.users.find((user) => user.name === name);
+		if (foundName) {
+			return true;
+		}
+		return false;
+	}
+
 	SetUserID(id) {
 		this.userID = id;
-		const user = Users.filter((user) => user.id === id);
+		const user = this.users.filter((user) => user.id === id);
 		this.savedTravels = user[0].savedTravels;
+	}
+
+	AddUser(newName, newPass) {
+		this.idCounter++;
+		const newUser = {
+			id: "user" + this.idCounter.toString(),
+			name: newName,
+			password: newPass,
+			savedTravels: [],
+		};
+		this.users.push(newUser);
 	}
 
 	GetTravelSpots() {
@@ -28,7 +49,6 @@ export default class DataManager {
 
 	AddTravelSpot(id) {
 		this.savedTravels.push(id);
-		console.log(this.savedTravels);
 	}
 
 	RemoveTravelSpot(id) {

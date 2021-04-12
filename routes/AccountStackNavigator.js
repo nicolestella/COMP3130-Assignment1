@@ -7,6 +7,7 @@ import MyAccount from "../screens/MyAccount";
 import Browse from "../screens/Browse";
 import TravelDetails from "../screens/TravelDetails";
 import AddListing from "../screens/AddListing";
+import EditListing from "../screens/EditListing";
 //import header components
 import Header from "../components/Header";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
@@ -53,6 +54,9 @@ export default function AccountStackNavigator() {
 
 			{/* Add listings screen */}
 			<AccountStack.Screen name='Add Listing' component={AddListing} />
+
+			{/* Add listings screen */}
+			<AccountStack.Screen name='Edit Listing' component={EditListing} />
 
 			{/* Browse screen */}
 			<AccountStack.Screen

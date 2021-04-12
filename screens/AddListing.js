@@ -1,11 +1,14 @@
+// The screen that allows users to add listings
+
 import React from "react";
 import { StyleSheet, View, FlatList, Alert } from "react-native";
 import { Picker } from "@react-native-picker/picker";
 import { withTheme, Paragraph, Button, IconButton } from "react-native-paper";
+import { AntDesign } from "@expo/vector-icons";
+// import custom components
 import TravelSpots from "../data/TravelSpots";
 import CustomCard from "../components/CustomCard";
 import DataManager from "../data/DataManager";
-import { AntDesign } from "@expo/vector-icons";
 
 function AddListing(props) {
 	// Will show/hide the search bar
@@ -35,6 +38,12 @@ function AddListing(props) {
 	// The function that will check if the search query matches with a travelspot's
 	// title, or category
 	const contains = ({ tags, country }, categoryQuery, countryQuery) => {
+		if (categoryQuery === "None") {
+			categoryQuery = null;
+		}
+		if (countryQuery === "None") {
+			countryQuery = null;
+		}
 		// Search through each item's tags array
 		let foundTag = false;
 		tags.filter((tag) => {
@@ -44,11 +53,10 @@ function AddListing(props) {
 			}
 		});
 
-		// If the search query matches with any object's country or category, return true
 		if (
 			(country === countryQuery && foundTag) ||
-			(countryQuery === "None" && foundTag) ||
-			(country === countryQuery && categoryQuery === "None")
+			(!countryQuery && foundTag) ||
+			(country === countryQuery && !categoryQuery)
 		) {
 			return true;
 		}
@@ -108,14 +116,16 @@ function AddListing(props) {
 				isSaved={alreadySaved}
 				onPress={() => {
 					if (!alreadySaved) {
-						commonData.AddTravelSpot(item.id);
 						Alert.alert("Save listing?", "", [
 							{
 								text: "Cancel",
 							},
 							{
 								text: "Yes",
-								onPress: () => props.navigation.navigate("My Account"),
+								onPress: () => {
+									commonData.AddTravelSpot(item.id);
+									props.navigation.navigate("My Account");
+								},
 							},
 						]);
 					} else {

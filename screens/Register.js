@@ -14,6 +14,7 @@ import { MaterialIcons } from "@expo/vector-icons";
 //import custom components
 import BigLogo from "../components/BigLogo";
 import FullWidthButton from "../components/FullWidthButton";
+import DataManager from "../data/DataManager";
 
 function Register(props) {
 	const { colors } = props.theme;
@@ -30,17 +31,27 @@ function Register(props) {
 		isValidData: true,
 	});
 
-	const registerHandle = (username, password) => {
-		const validData =
-			username != null &&
-			username.length != 0 &&
-			password != null &&
-			password.length != 0;
-
-		if (validData == false) {
+	// Pass user data using DataManager
+	const createUser = (data) => {
+		let commonData = DataManager.GetInstance();
+		if (commonData.UserNameExists(data.name)) {
 			setData({ isValidData: false });
 		} else {
+			commonData.AddUser(data.name, data.password);
 			onToggleSnackBar();
+		}
+	};
+
+	// Check if input is valid
+	const validate = (data) => {
+		if (!data.name || !data.password) {
+			console.log(data.name);
+			setData({ isValidData: false });
+		} else if (data.name.length < 3 || data.password.length < 3) {
+			setData({ isValidData: false });
+		} else {
+			setData({ isValidData: true });
+			createUser(data);
 		}
 	};
 
@@ -84,9 +95,7 @@ function Register(props) {
 
 			{/* if username or password is invalid, display error message  */}
 			{data.isValidData ? null : (
-				<Paragraph style={styles.error}>
-					Username and password cannot be empty
-				</Paragraph>
+				<Paragraph style={styles.error}>Invalid username or password</Paragraph>
 			)}
 
 			{/* Username input */}
@@ -120,7 +129,7 @@ function Register(props) {
 			<FullWidthButton
 				colors={colors.accent}
 				onPress={() => {
-					registerHandle(data.name, data.password);
+					validate(data);
 				}}
 			>
 				REGISTER
@@ -132,7 +141,7 @@ function Register(props) {
 				action={{
 					label: "LOGIN NOW",
 					onPress: () => {
-						navigate("Login", data);
+						navigate("Login");
 					},
 				}}
 			>

@@ -1,6 +1,7 @@
 // The screen that displays user account
 
 import React from "react";
+import { useIsFocused } from "@react-navigation/native";
 import { StyleSheet, View, FlatList } from "react-native";
 import { withTheme, Button } from "react-native-paper";
 // import custom components
@@ -18,23 +19,25 @@ function MyAccount(props) {
 	const { navigate } = props.navigation;
 	const [data, setData] = React.useState();
 
-	// Save the array of travel IDs in this variable
-	const savedTravelIDs = getTravelIDs();
-
-	// Get the TravelSpots objects that have a corresponding id
-	let travels = [];
-	for (var i = 0; i < savedTravelIDs.length; i++) {
-		travels[i] = TravelSpots.find((item) => item.id === savedTravelIDs[i]);
-	}
-
 	// Custom card component that displays each travel spot
 	const cardItem = ({ item }) => (
 		<CustomCard travelSpot={item} onPress={() => navigate("Details", item)} />
 	);
 
+	// Check if the screen is in focus/is currently open
+	const isFocused = useIsFocused();
+
 	React.useEffect(() => {
+		// Update the displayed data everytime the screen comes into focus.
+		const savedTravels = getTravelIDs();
+
+		let travels = [];
+		// Get the TravelSpots objects that have a corresponding id
+		for (var i = 0; i < savedTravels.length; i++) {
+			travels[i] = TravelSpots.find((item) => item.id === savedTravels[i]);
+		}
 		setData(travels);
-	}, []);
+	}, [isFocused]);
 
 	const styles = StyleSheet.create({
 		container: {
@@ -61,7 +64,11 @@ function MyAccount(props) {
 				>
 					Add new listing
 				</Button>
-				<Button mode='outlined' style={styles.button}>
+				<Button
+					mode='outlined'
+					style={styles.button}
+					onPress={() => navigate("Edit Listing", data)}
+				>
 					Edit listings
 				</Button>
 			</View>
