@@ -20,7 +20,7 @@ module.exports = [
 		country: "Australia",
 		keyword: "art",
 		collection: "9740328",
-		tags: ["Urban", "Sightseeing", "Art"],
+		tags: ["Landmark", "Sightseeing", "Art"],
 		description:
 			"The Sydney Opera House is a multi-venue performing arts centre at Sydney Harbour " +
 			"located in Sydney, New South Wales, Australia. It is one of the 20th century's " +
@@ -35,7 +35,7 @@ module.exports = [
 		country: "Singapore",
 		keyword: "hotel",
 		collection: "6803095",
-		tags: ["Food", "Hotel", "Urban"],
+		tags: ["Food", "Hotel", "Landmark"],
 		description:
 			"Marina Bay Sands stands out as a stunning icon of Singapore’s ever-growing city skyline. " +
 			"The 3 skyscrapers have – what seems to be – a cruise ship balancing precariously across the top. " +
@@ -66,7 +66,7 @@ module.exports = [
 		country: "USA",
 		keyword: "nature",
 		collection: "4252461",
-		tags: ["Family", "Nature", "Sightseeing"],
+		tags: ["Landmark", "Nature", "Sightseeing"],
 		description:
 			"The Grand Canyon is a mile-deep gorge in northern Arizona. Scientists estimate the canyon may have formed 5 to 6 million years ago " +
 			"when the Colorado River began to cut a channel through layers of rock. Humans have inhabited the area in and around the canyon since " +
@@ -81,7 +81,7 @@ module.exports = [
 		country: "Australia",
 		keyword: "nature",
 		collection: "3345483",
-		tags: ["Family", "Nature", "Sightseeing"],
+		tags: ["Landmark", "Nature", "Sightseeing"],
 		description:
 			"One of Australia’s most remarkable natural gifts, the Great Barrier Reef is blessed with the breathtaking beauty of the world’s largest coral " +
 			"reef. The reef contains an abundance of marine life and comprises of over 3000 individual reef systems and coral cays and literally hundreds of " +
@@ -116,5 +116,61 @@ module.exports = [
 			"all that our iconic destinations have to offer to make your getaway Grand. For the discerning traveler, the A Hotel Somewhere offers a great place for " +
 			"respade and relaxation. To provide an even more seamless experience, this private social space furnishes express check-ins, daily continental " +
 			"breakfasts and specialty craft cocktail hours. When booking your reservation, ask about upgrading to a Grand Club room.",
+	},
+	{
+		id: "8",
+		title: "Merlion",
+		keyword: "art",
+		country: "Singapore",
+		collection: "5000189",
+		tags: ["Landmark", "Urban", "Sightseeing"],
+		description:
+			"The Merlion is the official mascot of Singapore, depicted as a mythical creature with the head of a lion and the body of a fish. Being of prominent " +
+			"symbolic nature to Singapore and Singaporeans in general, it is widely used to represent both the city state and its people in sports teams, advertising, " +
+			"branding, tourism and as a national personification. The Merlion was first used in Singapore as the logo for the tourism board. Its name combines mer, " +
+			"meaning the sea, and lion. The fish body represents Singapore's origin as a fishing village when it was called Temasek, which means sea town in Javanese. " +
+			"The lion head represents Singapore's original name—Singapura—meaning lion city or kota singa.",
+	},
+	{
+		id: "9",
+		title: "Mount Uluru",
+		keyword: "Nature",
+		country: "Australia",
+		collection: "3152176",
+		tags: ["Nature", "Sightseeing", "Landmark"],
+		description:
+			"Considered the spiritual heart of Australia, this region's gem is Uluru/Ayers Rock, but it also offers visitors so much more, and is only a few " +
+			"hours from Sydney. Get ready to be blown away by World Heritage-listed natural wonders, iconic wildlife and the red dirt of the Australian Outback. " +
+			"The Uluru region is home to two of Australia's most famous rock formations, a mighty canyon and an ancient indigenous culture rich in story, dance and art." +
+			"The rock was created over some 600 million years, and the Aborigines have been in the area for the last 10,000 years. It originally sat at the bottom " +
+			"of a sea, but today stands 348m above ground. One of the most startling Uluru facts however, is that some 2.5kms of its bulk is underground.",
+	},
+	{
+		id: "10",
+		title: "Luna Park",
+		keyword: "theme park",
+		country: "Australia",
+		collection: "4950555",
+		tags: ["Fun", "Family", "Theme Park"],
+		description:
+			"Luna Park Melbourne is a small Family Friendly Amusement Park in St Kilda. Experience one of the top ‘Things to do in Melbourne’ – Just for Fun! Soak up " +
+			"the spectacular carnival atmosphere with wide range of rides and attractions for all ages. After you've been thrilled and entertained on the rides and enjoyed " +
+			"the delicious food and drinks available, test your skills and luck on the carnival games. Ideally located next to St Kilda beach, Melbourne's Luna Park is always " +
+			"a great day out for the young and the young at heart! Ticket Prices / Admission Park Entry $5 Your entry fee helps preserve Luna Park’s heritage – Just for fun for " +
+			"years to come!",
+	},
+	{
+		id: "11",
+		title: "Universal Studios",
+		keyword: "theme park",
+		country: "USA",
+		collection: "59663525",
+		tags: ["Fun", "Family", "Theme Park"],
+		description:
+			"Get ready for the ultimate Hollywood experience! Find a full day of action-packed entertainment all in one place: thrilling theme park rides and shows, " +
+			"a real working movie studio, and Los Angeles’ best shops, restaurants and cinemas at CityWalk. Universal Studios Hollywood is a unique experience that’s fun for the whole " +
+			"family. Explore Universal Studios backlot on the legendary Studio Tour. Then face the action head on in heart-pounding rides, shows and attractions that " +
+			"put you inside some of the world’s biggest movies. End your day with the energy and excitement of Universal CityWalk. All this and much more. Only at Universal " +
+			"Studios Hollywood, The Entertainment Capital of L.A.",
 	},
 ];

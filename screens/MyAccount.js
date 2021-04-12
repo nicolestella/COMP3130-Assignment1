@@ -3,7 +3,8 @@
 import React from "react";
 import { useIsFocused } from "@react-navigation/native";
 import { StyleSheet, View, FlatList } from "react-native";
-import { withTheme, Button } from "react-native-paper";
+import { withTheme, Button, Paragraph } from "react-native-paper";
+import { AntDesign } from "@expo/vector-icons";
 // import custom components
 import TravelSpots from "../data/TravelSpots";
 import CustomCard from "../components/CustomCard";
@@ -18,7 +19,7 @@ const getTravelIDs = () => {
 function MyAccount(props) {
 	const { navigate } = props.navigation;
 	const [data, setData] = React.useState();
-
+	const [isEmpty, setIsEmpty] = React.useState(false);
 	// Custom card component that displays each travel spot
 	const cardItem = ({ item }) => (
 		<CustomCard travelSpot={item} onPress={() => navigate("Details", item)} />
@@ -30,7 +31,11 @@ function MyAccount(props) {
 	React.useEffect(() => {
 		// Update the displayed data everytime the screen comes into focus.
 		const savedTravels = getTravelIDs();
-
+		if (savedTravels.length == 0) {
+			setIsEmpty(true);
+		} else {
+			setIsEmpty(false);
+		}
 		let travels = [];
 		// Get the TravelSpots objects that have a corresponding id
 		for (var i = 0; i < savedTravels.length; i++) {
@@ -73,6 +78,22 @@ function MyAccount(props) {
 				</Button>
 			</View>
 
+			{/* If there are no listings saved, display text to prompt user to add listings */}
+			{isEmpty ? (
+				<View style={{ alignItems: "center", paddingTop: 100 }}>
+					<AntDesign name='frowno' size={50} color='grey' />
+					<Paragraph
+						style={{
+							fontSize: 20,
+							paddingTop: 30,
+							textAlign: "center",
+							color: "#737373",
+						}}
+					>
+						Nothing here... Try adding listings.
+					</Paragraph>
+				</View>
+			) : null}
 			{/* The list of items */}
 			<FlatList
 				data={data}

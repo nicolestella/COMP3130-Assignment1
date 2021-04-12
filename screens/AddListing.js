@@ -71,6 +71,7 @@ function AddListing(props) {
 		"Food",
 		"Fun",
 		"Hotel",
+		"Landmark",
 		"Nature",
 		"Sightseeing",
 		"Theme Park",
