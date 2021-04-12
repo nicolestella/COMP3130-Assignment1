@@ -1,3 +1,5 @@
+// The instance that will allow screens to fetch user data
+
 import Users from "../data/Users";
 
 export default class DataManager {

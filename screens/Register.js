@@ -25,6 +25,7 @@ function Register(props) {
 	const onToggleSnackBar = () => setVisible(!visible);
 	const onDismissSnackBar = () => setVisible(false);
 
+	// For data input and validation
 	const [data, setData] = React.useState({
 		name: "",
 		password: "",
@@ -34,9 +35,14 @@ function Register(props) {
 	// Pass user data using DataManager
 	const createUser = (data) => {
 		let commonData = DataManager.GetInstance();
+
+		// Check if username already exists
 		if (commonData.UserNameExists(data.name)) {
+			// If it does, data is invalid
 			setData({ isValidData: false });
 		} else {
+			// Otherwise, make a new user and toggle the snackbar to
+			// allow user to directly go to login screen
 			commonData.AddUser(data.name, data.password);
 			onToggleSnackBar();
 		}

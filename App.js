@@ -1,10 +1,11 @@
 import * as React from "react";
 import { DefaultTheme, Provider as PaperProvider } from "react-native-paper";
-//import navigation stuff
+//import react-navigation components
 import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer } from "@react-navigation/native";
-import AuthStackNavigator from "./routes/WelcomeStackNavigator";
-import AccountStackNavigator from "./routes/AccountStackNavigator";
+//import stack navigators
+import WelcomeStackNavigator from "./routes/WelcomeStackNavigator";
+import LoggedInTabNavigator from "./routes/LoggedInTabNavigator";
 import theme from "./styles/theme";
 
 const RootStack = createStackNavigator();
@@ -16,11 +17,14 @@ export default function App() {
 			<NavigationContainer>
 				<RootStack.Navigator screenOptions={{ headerShown: false }}>
 					{/* Welcome screen navigation */}
-					<RootStack.Screen name={"AuthStack"} component={AuthStackNavigator} />
+					<RootStack.Screen
+						name={"Welcome"}
+						component={WelcomeStackNavigator}
+					/>
 					{/* Account screen navigation */}
 					<RootStack.Screen
-						name={"AccountStack"}
-						component={AccountStackNavigator}
+						name={"Logged In"}
+						component={LoggedInTabNavigator}
 					/>
 				</RootStack.Navigator>
 			</NavigationContainer>

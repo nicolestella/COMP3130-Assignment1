@@ -1,3 +1,5 @@
+// Custom header for the account stack
+
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 

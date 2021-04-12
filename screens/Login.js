@@ -1,5 +1,7 @@
 // Login screen
 
+// The login screen
+
 import React from "react";
 import { StyleSheet, View } from "react-native";
 import {
@@ -133,7 +135,7 @@ function Login(props) {
 				onPress={() => {
 					if (validateUser()) {
 						createUser(data);
-						navigate("AccountStack");
+						navigate("Logged In");
 					} else {
 						setData({ isValidData: false });
 					}

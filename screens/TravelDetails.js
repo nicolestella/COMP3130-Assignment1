@@ -6,10 +6,12 @@ import { withTheme, Title, Paragraph, Chip, Button } from "react-native-paper";
 function TravelDetails({ route }) {
 	const travelSpot = route.params;
 
+	// Source of the image
 	const imgSrc = {
 		uri: "https://source.unsplash.com/collection/" + travelSpot.collection,
 	};
 
+	// Tags chips
 	const renderItem = ({ item }) => (
 		<Chip key={item.id + item.tag} style={styles.chip}>
 			{item}

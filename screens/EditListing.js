@@ -20,6 +20,8 @@ function EditListing(props) {
 				travelSpot={item}
 				listingItem
 				onPress={() => {
+					// When user clicks on the card, display an alert to allow
+					// user to confirm listing deletion.
 					Alert.alert("Delete listing?", "", [
 						{
 							text: "Cancel",

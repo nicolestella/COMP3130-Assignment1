@@ -1,3 +1,5 @@
+// The big logo at the welcome, login, and registration screen
+
 import React from "react";
 import { Image } from "react-native";
 

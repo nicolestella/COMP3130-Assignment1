@@ -1,4 +1,4 @@
-// This is the card that will show a travel spot in the travels screen.
+// This is the card that will show a travel spot.
 
 import React from "react";
 import { Card, Title, Paragraph, Button } from "react-native-paper";
