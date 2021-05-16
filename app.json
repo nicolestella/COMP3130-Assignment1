@@ -27,6 +27,7 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "description": "This is task 2 for Assignment 1. The name of the app is TripBee, it is an app that allows users to browse through popular travel destinations and save them on their profile like a wishlist."
   }
 }

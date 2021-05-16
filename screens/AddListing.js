@@ -11,6 +11,7 @@ import CustomCard from "../components/CustomCard";
 import DataManager from "../data/DataManager";
 
 function AddListing(props) {
+	const commonData = DataManager.GetInstance();
 	// Will show/hide the search bar
 	const [showSearch, setShowSearch] = React.useState(true);
 	const onToggleShowSearch = () => setShowSearch(!showSearch);
@@ -103,7 +104,7 @@ function AddListing(props) {
 	// Custom card component that displays each travel spot
 	const cardItem = ({ item }) => {
 		let commonData = DataManager.GetInstance();
-		let savedTravels = commonData.GetTravelSpots();
+		let savedTravels = commonData.GetSavedTravels();
 		let alreadySaved = false;
 		for (var i = 0; i < savedTravels.length; i++) {
 			if (item.id === savedTravels[i]) {
@@ -150,8 +151,9 @@ function AddListing(props) {
 
 	// Set Data and searchData when the component mounts
 	React.useEffect(() => {
-		setData(TravelSpots);
-		setsearchData(TravelSpots);
+		const spots = commonData.GetTravelSpots();
+		setData(spots);
+		setsearchData(spots);
 	}, []);
 
 	const styles = StyleSheet.create({

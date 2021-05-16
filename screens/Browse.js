@@ -1,13 +1,16 @@
 // This screen displays all the travel spots
 import React from "react";
+import { useIsFocused } from "@react-navigation/native";
 import { StyleSheet, View, FlatList } from "react-native";
 import { withTheme, Searchbar } from "react-native-paper";
 // import custom components
 import CustomCard from "../components/CustomCard";
 import TravelSpots from "../data/TravelSpots";
+import DataManager from '../data/DataManager';
 
 function Travels(props) {
 	const { navigate } = props.navigation;
+	const commonData = DataManager.GetInstance();
 
 	// Data will store the whole TravelSpots array
 	const [data, setData] = React.useState([]);
@@ -67,11 +70,13 @@ function Travels(props) {
 		return false;
 	};
 
+	const isFocused = useIsFocused();
 	// Set Data and searchData when the component mounts
 	React.useEffect(() => {
-		setData(TravelSpots);
-		setsearchData(TravelSpots);
-	}, []);
+		const spots = commonData.GetTravelSpots();
+		setData(spots);
+		setsearchData(spots);
+	}, [isFocused]);
 
 	const styles = StyleSheet.create({
 		container: {

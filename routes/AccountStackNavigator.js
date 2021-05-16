@@ -7,6 +7,8 @@ import { Button } from "react-native-paper";
 import MyAccount from "../screens/MyAccount";
 import AddListing from "../screens/AddListing";
 import EditListing from "../screens/EditListing";
+import CustomListing from "../screens/CustomListing";
+import EditCustomListing from '../screens/EditCustomListing';
 //import header components
 import Header from "../components/Header";
 import LogoutButton from "../components/LogoutButton";
@@ -42,6 +44,12 @@ export default function AccountStackNavigator() {
 
 			{/* Delete listings screen */}
 			<AccountStack.Screen name='Edit Listing' component={EditListing} />
+
+			{/* Create listings screen */}
+			<AccountStack.Screen name='Custom Listing' component={CustomListing} />
+
+			{/* Create listings screen */}
+			<AccountStack.Screen name='View Custom Listings' component={EditCustomListing} />
 		</AccountStack.Navigator>
 	);
 }

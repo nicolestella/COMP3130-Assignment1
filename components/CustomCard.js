@@ -3,14 +3,17 @@
 import React from "react";
 import { Card, Title, Paragraph, Button } from "react-native-paper";
 
-export default function CustomCard({
-	travelSpot,
-	onPress,
-	listingItem,
-	isSaved,
-}) {
-	const imgSrc =
-		"https://source.unsplash.com/collection/" + travelSpot.collection;
+export default function CustomCard({ travelSpot, onPress, listingItem, onEdit }) {
+	const imgSrc = () => {
+
+		if (travelSpot.collection) {
+			return { uri: "https://source.unsplash.com/collection/" + travelSpot.collection };
+		}
+
+		else {
+			return travelSpot.img;
+		}
+	}
 
 	return (
 		<Card
@@ -19,7 +22,7 @@ export default function CustomCard({
 			onPress={onPress}
 		>
 			{/* The image */}
-			<Card.Cover source={{ uri: imgSrc }} />
+			<Card.Cover source={imgSrc()} />
 			<Card.Title title={travelSpot.title} subtitle={travelSpot.country} />
 			<Card.Content>
 				{/* The description */}
@@ -27,7 +30,7 @@ export default function CustomCard({
 			</Card.Content>
 			<Card.Actions>
 				{listingItem ? null : <Button onPress={onPress}>Learn more</Button>}
-				{isSaved ? <Button mode='contained'>Saved</Button> : null}
+				{travelSpot.custom ? <Button mode='contained' onPress={onEdit}>Edit</Button> : null}
 			</Card.Actions>
 		</Card>
 	);

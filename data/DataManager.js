@@ -1,6 +1,7 @@
 // The instance that will allow screens to fetch user data
 
 import Users from "../data/Users";
+import TravelSpots from '../data/TravelSpots';
 
 export default class DataManager {
 	static myInstance = null;
@@ -8,6 +9,9 @@ export default class DataManager {
 	idCounter = 2;
 	userID = "";
 	savedTravels = [];
+	customListings = [];
+	customID = 11;
+	travelSpots = TravelSpots;
 
 	static GetInstance() {
 		if (DataManager.myInstance == null) {
@@ -45,7 +49,7 @@ export default class DataManager {
 		this.users.push(newUser);
 	}
 
-	GetTravelSpots() {
+	GetSavedTravels() {
 		return this.savedTravels;
 	}
 
@@ -56,5 +60,41 @@ export default class DataManager {
 	RemoveTravelSpot(id) {
 		const newArr = this.savedTravels.filter((item) => item !== id);
 		this.savedTravels = newArr;
+	}
+
+	AddCustomListing(data) {
+		data.id = (this.customID + 1).toString();
+		TravelSpots.push(data);
+		this.customListings.push(data);
+	}
+
+	GetCustomListings() {
+		return this.customListings;
+	}
+
+	EditListing(data) {
+		let result = [];
+		for (var i = 0; i < this.customListings.length; i++){
+			if (this.customListings[i].id === data.id) {
+				result[i] = data;
+			} else {
+				result[i] = this.customListings[i];
+			}
+		}
+		this.customListings = result;
+
+		let temp = [];
+		for (var i = 0; i < this.travelSpots.length; i++){
+			if (this.travelSpots[i].id === data.id) {
+				temp[i] = data;
+			} else {
+				temp[i] = this.travelSpots[i];
+			}
+		}
+		this.travelSpots = temp;
+	}
+
+	GetTravelSpots() {
+		return this.travelSpots;
 	}
 }
