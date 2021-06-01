@@ -1,0 +1,857 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CustomCard renders correctly when it is editable 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#ffffff",
+      "borderRadius": 4,
+      "elevation": 1,
+      "marginTop": 20,
+      "shadowColor": "#000000",
+      "shadowOffset": Object {
+        "height": 0.5,
+        "width": 0,
+      },
+      "shadowOpacity": 0.24,
+      "shadowRadius": 0.75,
+      "width": "95%",
+    }
+  }
+>
+  <View
+    accessible={true}
+    focusable={false}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "flexGrow": 1,
+        "flexShrink": 1,
+      }
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "backgroundColor": "#eeeeee",
+            "height": 195,
+            "overflow": "hidden",
+          },
+          Object {
+            "borderTopLeftRadius": 4,
+            "borderTopRightRadius": 4,
+          },
+          undefined,
+        ]
+      }
+    >
+      <Image
+        siblings={
+          Array [
+            "withTheme(Card.Cover)",
+            "withTheme(Card.Title)",
+            "Card.Content",
+            "Card.Actions",
+          ]
+        }
+        source={
+          Object {
+            "uri": "https://source.unsplash.com/collection/3446667",
+          }
+        }
+        style={
+          Array [
+            Object {
+              "flex": 1,
+              "height": undefined,
+              "justifyContent": "flex-end",
+              "padding": 16,
+              "resizeMode": "cover",
+              "width": undefined,
+            },
+            Object {
+              "borderTopLeftRadius": 4,
+              "borderTopRightRadius": 4,
+            },
+          ]
+        }
+      />
+    </View>
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "flexDirection": "row",
+            "justifyContent": "space-between",
+            "paddingLeft": 16,
+          },
+          Object {
+            "minHeight": 72,
+          },
+          undefined,
+        ]
+      }
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "flex": 1,
+              "flexDirection": "column",
+              "justifyContent": "center",
+            },
+          ]
+        }
+      >
+        <Text
+          numberOfLines={1}
+          style={
+            Array [
+              Object {
+                "color": "#000000",
+                "fontFamily": "System",
+                "fontWeight": "400",
+              },
+              Object {
+                "textAlign": "left",
+              },
+              Array [
+                Object {
+                  "textAlign": "left",
+                },
+                Object {
+                  "color": "rgba(0, 0, 0, 0.87)",
+                  "fontFamily": "System",
+                  "fontWeight": "500",
+                  "writingDirection": "ltr",
+                },
+                Array [
+                  Object {
+                    "fontSize": 20,
+                    "letterSpacing": 0.15,
+                    "lineHeight": 30,
+                    "marginVertical": 2,
+                  },
+                  Array [
+                    Object {
+                      "minHeight": 30,
+                    },
+                    Object {
+                      "marginBottom": 0,
+                    },
+                    undefined,
+                  ],
+                ],
+              ],
+            ]
+          }
+        >
+          Random title
+        </Text>
+        <Text
+          numberOfLines={1}
+          style={
+            Array [
+              Object {
+                "color": "#000000",
+                "fontFamily": "System",
+                "fontWeight": "400",
+              },
+              Object {
+                "textAlign": "left",
+              },
+              Array [
+                Object {
+                  "textAlign": "left",
+                },
+                Object {
+                  "color": "rgba(0, 0, 0, 0.54)",
+                  "fontFamily": "System",
+                  "fontWeight": "400",
+                  "writingDirection": "ltr",
+                },
+                Array [
+                  Object {
+                    "fontSize": 12,
+                    "letterSpacing": 0.4,
+                    "lineHeight": 20,
+                    "marginVertical": 2,
+                  },
+                  Array [
+                    Object {
+                      "marginVertical": 0,
+                      "minHeight": 20,
+                    },
+                    undefined,
+                  ],
+                ],
+              ],
+            ]
+          }
+        >
+          Somewhere
+        </Text>
+      </View>
+      <View />
+    </View>
+    <View
+      style={
+        Array [
+          Object {
+            "paddingHorizontal": 16,
+          },
+          undefined,
+          undefined,
+        ]
+      }
+    >
+      <Text
+        numberOfLines={2}
+        style={
+          Array [
+            Object {
+              "color": "#000000",
+              "fontFamily": "System",
+              "fontWeight": "400",
+            },
+            Object {
+              "textAlign": "left",
+            },
+            Array [
+              Object {
+                "textAlign": "left",
+              },
+              Object {
+                "color": "rgba(0, 0, 0, 0.87)",
+                "fontFamily": "System",
+                "fontWeight": "400",
+                "writingDirection": "ltr",
+              },
+              Array [
+                Object {
+                  "fontSize": 14,
+                  "letterSpacing": 0.25,
+                  "lineHeight": 20,
+                  "marginVertical": 2,
+                },
+                undefined,
+              ],
+            ],
+          ]
+        }
+      >
+        Some description
+      </Text>
+    </View>
+    <View
+      index={3}
+      siblings={
+        Array [
+          "withTheme(Card.Cover)",
+          "withTheme(Card.Title)",
+          "Card.Content",
+          "Card.Actions",
+        ]
+      }
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "flexDirection": "row",
+            "justifyContent": "flex-start",
+            "padding": 8,
+          },
+          undefined,
+        ]
+      }
+      total={4}
+    >
+      <View
+        style={
+          Object {
+            "backgroundColor": "transparent",
+            "borderColor": "transparent",
+            "borderRadius": 4,
+            "borderStyle": "solid",
+            "borderWidth": 0,
+            "elevation": 0,
+            "minWidth": "auto",
+          }
+        }
+      >
+        <View
+          accessibilityRole="button"
+          accessibilityState={
+            Object {
+              "disabled": undefined,
+            }
+          }
+          accessible={true}
+          focusable={false}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Array [
+              Object {
+                "overflow": "hidden",
+              },
+              Object {
+                "borderRadius": 4,
+              },
+            ]
+          }
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flexDirection": "row",
+                  "justifyContent": "center",
+                },
+                undefined,
+              ]
+            }
+          >
+            <Text
+              numberOfLines={1}
+              selectable={false}
+              style={
+                Array [
+                  Object {
+                    "color": "#000000",
+                    "fontFamily": "System",
+                    "fontWeight": "400",
+                  },
+                  Object {
+                    "textAlign": "left",
+                  },
+                  Array [
+                    Object {
+                      "letterSpacing": 1,
+                      "marginHorizontal": 16,
+                      "marginVertical": 9,
+                      "textAlign": "center",
+                    },
+                    Object {
+                      "marginHorizontal": 8,
+                    },
+                    Object {
+                      "textTransform": "uppercase",
+                    },
+                    Object {
+                      "color": "#6200ee",
+                      "fontFamily": "System",
+                      "fontWeight": "500",
+                    },
+                    Object {
+                      "fontFamily": "System",
+                      "fontWeight": "500",
+                    },
+                    undefined,
+                  ],
+                ]
+              }
+            >
+              Learn more
+            </Text>
+          </View>
+        </View>
+      </View>
+      <View
+        style={
+          Object {
+            "backgroundColor": "#6200ee",
+            "borderColor": "transparent",
+            "borderRadius": 4,
+            "borderStyle": "solid",
+            "borderWidth": 0,
+            "elevation": 2,
+            "minWidth": "auto",
+            "shadowColor": "#000000",
+            "shadowOffset": Object {
+              "height": 0.75,
+              "width": 0,
+            },
+            "shadowOpacity": 0.24,
+            "shadowRadius": 1.5,
+          }
+        }
+      >
+        <View
+          accessibilityRole="button"
+          accessibilityState={
+            Object {
+              "disabled": undefined,
+            }
+          }
+          accessible={true}
+          focusable={false}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Array [
+              Object {
+                "overflow": "hidden",
+              },
+              Object {
+                "borderRadius": 4,
+              },
+            ]
+          }
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flexDirection": "row",
+                  "justifyContent": "center",
+                },
+                undefined,
+              ]
+            }
+          >
+            <Text
+              numberOfLines={1}
+              selectable={false}
+              style={
+                Array [
+                  Object {
+                    "color": "#000000",
+                    "fontFamily": "System",
+                    "fontWeight": "400",
+                  },
+                  Object {
+                    "textAlign": "left",
+                  },
+                  Array [
+                    Object {
+                      "letterSpacing": 1,
+                      "marginHorizontal": 16,
+                      "marginVertical": 9,
+                      "textAlign": "center",
+                    },
+                    Object {
+                      "marginHorizontal": 8,
+                    },
+                    Object {
+                      "textTransform": "uppercase",
+                    },
+                    Object {
+                      "color": "#ffffff",
+                      "fontFamily": "System",
+                      "fontWeight": "500",
+                    },
+                    Object {
+                      "fontFamily": "System",
+                      "fontWeight": "500",
+                    },
+                    undefined,
+                  ],
+                ]
+              }
+            >
+              Edit
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`CustomCard renders correctly when it is not editable 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#ffffff",
+      "borderRadius": 4,
+      "elevation": 1,
+      "marginTop": 20,
+      "shadowColor": "#000000",
+      "shadowOffset": Object {
+        "height": 0.5,
+        "width": 0,
+      },
+      "shadowOpacity": 0.24,
+      "shadowRadius": 0.75,
+      "width": "95%",
+    }
+  }
+>
+  <View
+    accessible={true}
+    focusable={false}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "flexGrow": 1,
+        "flexShrink": 1,
+      }
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "backgroundColor": "#eeeeee",
+            "height": 195,
+            "overflow": "hidden",
+          },
+          Object {
+            "borderTopLeftRadius": 4,
+            "borderTopRightRadius": 4,
+          },
+          undefined,
+        ]
+      }
+    >
+      <Image
+        siblings={
+          Array [
+            "withTheme(Card.Cover)",
+            "withTheme(Card.Title)",
+            "Card.Content",
+            "Card.Actions",
+          ]
+        }
+        source={
+          Object {
+            "uri": "https://source.unsplash.com/collection/3446667",
+          }
+        }
+        style={
+          Array [
+            Object {
+              "flex": 1,
+              "height": undefined,
+              "justifyContent": "flex-end",
+              "padding": 16,
+              "resizeMode": "cover",
+              "width": undefined,
+            },
+            Object {
+              "borderTopLeftRadius": 4,
+              "borderTopRightRadius": 4,
+            },
+          ]
+        }
+      />
+    </View>
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "flexDirection": "row",
+            "justifyContent": "space-between",
+            "paddingLeft": 16,
+          },
+          Object {
+            "minHeight": 72,
+          },
+          undefined,
+        ]
+      }
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "flex": 1,
+              "flexDirection": "column",
+              "justifyContent": "center",
+            },
+          ]
+        }
+      >
+        <Text
+          numberOfLines={1}
+          style={
+            Array [
+              Object {
+                "color": "#000000",
+                "fontFamily": "System",
+                "fontWeight": "400",
+              },
+              Object {
+                "textAlign": "left",
+              },
+              Array [
+                Object {
+                  "textAlign": "left",
+                },
+                Object {
+                  "color": "rgba(0, 0, 0, 0.87)",
+                  "fontFamily": "System",
+                  "fontWeight": "500",
+                  "writingDirection": "ltr",
+                },
+                Array [
+                  Object {
+                    "fontSize": 20,
+                    "letterSpacing": 0.15,
+                    "lineHeight": 30,
+                    "marginVertical": 2,
+                  },
+                  Array [
+                    Object {
+                      "minHeight": 30,
+                    },
+                    Object {
+                      "marginBottom": 0,
+                    },
+                    undefined,
+                  ],
+                ],
+              ],
+            ]
+          }
+        >
+          Disneyland California
+        </Text>
+        <Text
+          numberOfLines={1}
+          style={
+            Array [
+              Object {
+                "color": "#000000",
+                "fontFamily": "System",
+                "fontWeight": "400",
+              },
+              Object {
+                "textAlign": "left",
+              },
+              Array [
+                Object {
+                  "textAlign": "left",
+                },
+                Object {
+                  "color": "rgba(0, 0, 0, 0.54)",
+                  "fontFamily": "System",
+                  "fontWeight": "400",
+                  "writingDirection": "ltr",
+                },
+                Array [
+                  Object {
+                    "fontSize": 12,
+                    "letterSpacing": 0.4,
+                    "lineHeight": 20,
+                    "marginVertical": 2,
+                  },
+                  Array [
+                    Object {
+                      "marginVertical": 0,
+                      "minHeight": 20,
+                    },
+                    undefined,
+                  ],
+                ],
+              ],
+            ]
+          }
+        >
+          USA
+        </Text>
+      </View>
+      <View />
+    </View>
+    <View
+      style={
+        Array [
+          Object {
+            "paddingHorizontal": 16,
+          },
+          undefined,
+          undefined,
+        ]
+      }
+    >
+      <Text
+        numberOfLines={2}
+        style={
+          Array [
+            Object {
+              "color": "#000000",
+              "fontFamily": "System",
+              "fontWeight": "400",
+            },
+            Object {
+              "textAlign": "left",
+            },
+            Array [
+              Object {
+                "textAlign": "left",
+              },
+              Object {
+                "color": "rgba(0, 0, 0, 0.87)",
+                "fontFamily": "System",
+                "fontWeight": "400",
+                "writingDirection": "ltr",
+              },
+              Array [
+                Object {
+                  "fontSize": 14,
+                  "letterSpacing": 0.25,
+                  "lineHeight": 20,
+                  "marginVertical": 2,
+                },
+                undefined,
+              ],
+            ],
+          ]
+        }
+      >
+        Disneyland, amusement park in Anaheim, California, featuring characters, rides, and shows based on the creations of Walt Disney and the Disney Company. Though its central building, the Sleeping Beauty Castle, is modeled on Germany’s Neuschwanstein Castle, it is an unmistakable icon of American popular culture. Disneyland is the only Disney theme park designed and built under the supervision of Walt Disney.
+      </Text>
+    </View>
+    <View
+      index={3}
+      siblings={
+        Array [
+          "withTheme(Card.Cover)",
+          "withTheme(Card.Title)",
+          "Card.Content",
+          "Card.Actions",
+        ]
+      }
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "flexDirection": "row",
+            "justifyContent": "flex-start",
+            "padding": 8,
+          },
+          undefined,
+        ]
+      }
+      total={4}
+    >
+      <View
+        style={
+          Object {
+            "backgroundColor": "transparent",
+            "borderColor": "transparent",
+            "borderRadius": 4,
+            "borderStyle": "solid",
+            "borderWidth": 0,
+            "elevation": 0,
+            "minWidth": "auto",
+          }
+        }
+      >
+        <View
+          accessibilityRole="button"
+          accessibilityState={
+            Object {
+              "disabled": undefined,
+            }
+          }
+          accessible={true}
+          focusable={false}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Array [
+              Object {
+                "overflow": "hidden",
+              },
+              Object {
+                "borderRadius": 4,
+              },
+            ]
+          }
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flexDirection": "row",
+                  "justifyContent": "center",
+                },
+                undefined,
+              ]
+            }
+          >
+            <Text
+              numberOfLines={1}
+              selectable={false}
+              style={
+                Array [
+                  Object {
+                    "color": "#000000",
+                    "fontFamily": "System",
+                    "fontWeight": "400",
+                  },
+                  Object {
+                    "textAlign": "left",
+                  },
+                  Array [
+                    Object {
+                      "letterSpacing": 1,
+                      "marginHorizontal": 16,
+                      "marginVertical": 9,
+                      "textAlign": "center",
+                    },
+                    Object {
+                      "marginHorizontal": 8,
+                    },
+                    Object {
+                      "textTransform": "uppercase",
+                    },
+                    Object {
+                      "color": "#6200ee",
+                      "fontFamily": "System",
+                      "fontWeight": "500",
+                    },
+                    Object {
+                      "fontFamily": "System",
+                      "fontWeight": "500",
+                    },
+                    undefined,
+                  ],
+                ]
+              }
+            >
+              Learn more
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+  </View>
+</View>
+`;

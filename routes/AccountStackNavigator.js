@@ -46,10 +46,10 @@ export default function AccountStackNavigator() {
 			<AccountStack.Screen name='Edit Listing' component={EditListing} />
 
 			{/* Create listings screen */}
-			<AccountStack.Screen name='Custom Listing' component={CustomListing} />
+			<AccountStack.Screen name='View Custom Listings' component={EditCustomListing} />
 
 			{/* Create listings screen */}
-			<AccountStack.Screen name='View Custom Listings' component={EditCustomListing} />
+			<AccountStack.Screen name='Custom Listing' component={CustomListing} />
 		</AccountStack.Navigator>
 	);
 }

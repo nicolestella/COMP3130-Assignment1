@@ -4,7 +4,7 @@ import { StyleSheet, ScrollView, Image, FlatList } from "react-native";
 import { withTheme, Title, Paragraph, Chip, Button } from "react-native-paper";
 
 function TravelDetails({ route }) {
-	const travelSpot = route.params;
+	const travelSpot = route.params.data;
 
 	// Source of the image
 	const imgSrc = {

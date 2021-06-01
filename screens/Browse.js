@@ -42,8 +42,8 @@ function Travels(props) {
 	};
 
 	// The function that will check if the search query matches with a travelspot's
-	// keyword, title, or tags
-	const contains = ({ keyword, title, tags, country }, query) => {
+	// title, or tags
+	const contains = ({ title, tags, country }, query) => {
 		// Convert title to lowercase because all queries are converted to lowercase
 		const lowCaseTitle = title.toLowerCase();
 		const lowCaseCountry = country.toLowerCase();
@@ -58,9 +58,8 @@ function Travels(props) {
 			}
 		});
 
-		// If the search query matches with any object's keyword, title, or tags, return true
+		// If the search query matches with any object's title, or tags, return true
 		if (
-			keyword.includes(query) ||
 			lowCaseTitle.includes(query) ||
 			lowCaseCountry.includes(query) ||
 			foundTag

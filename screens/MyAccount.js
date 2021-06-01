@@ -25,7 +25,18 @@ function MyAccount(props) {
 	const [open, setOpen] = React.useState(false);
 	// Custom card component that displays each travel spot
 	const cardItem = ({ item }) => (
-		<CustomCard travelSpot={item} onPress={() => navigate("Details", item)} />
+		<CustomCard
+			travelSpot={item}
+			onPress={
+				() => navigate("Browse",
+					{
+						screen: "Details",
+						initial: false,
+						params: {
+							data: item
+						}
+					})}
+		/>
 	);
 
 	// Check if the screen is in focus/is currently open

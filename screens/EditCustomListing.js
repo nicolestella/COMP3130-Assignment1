@@ -23,7 +23,6 @@ function EditCustomListing(props) {
 	const [data, setData] = React.useState();
   const [isEmpty, setIsEmpty] = React.useState(false);
 
-	const [open, setOpen] = React.useState(false);
 	// Custom card component that displays each travel spot
 	const cardItem = ({ item }) => (
 		<CustomCard travelSpot={item} onEdit={() => navigate('Custom Listing', item)} />

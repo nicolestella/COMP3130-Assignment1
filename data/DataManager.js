@@ -9,7 +9,6 @@ export default class DataManager {
 	idCounter = 2;
 	userID = "";
 	savedTravels = [];
-	customListings = [];
 	customID = 11;
 	travelSpots = TravelSpots;
 
@@ -64,24 +63,25 @@ export default class DataManager {
 
 	AddCustomListing(data) {
 		data.id = (this.customID + 1).toString();
-		TravelSpots.push(data);
-		this.customListings.push(data);
+		this.travelSpots.push(data);
 	}
 
 	GetCustomListings() {
-		return this.customListings;
+		const newArr = this.travelSpots.filter((item) => item.custom === true);
+		return newArr;
 	}
 
 	EditListing(data) {
 		let result = [];
-		for (var i = 0; i < this.customListings.length; i++){
-			if (this.customListings[i].id === data.id) {
+		let customListings = this.GetCustomListings();
+		for (var i = 0; i < customListings.length; i++){
+			if (customListings[i].id === data.id) {
 				result[i] = data;
 			} else {
-				result[i] = this.customListings[i];
+				result[i] = customListings[i];
 			}
 		}
-		this.customListings = result;
+		customListings = result;
 
 		let temp = [];
 		for (var i = 0; i < this.travelSpots.length; i++){
@@ -92,6 +92,11 @@ export default class DataManager {
 			}
 		}
 		this.travelSpots = temp;
+	}
+
+	DeleteListing(id) {
+		const newArr = this.travelSpots.filter((item) => item.id !== id);
+		this.travelSpots = newArr;
 	}
 
 	GetTravelSpots() {

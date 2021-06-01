@@ -1,5 +1,5 @@
 import React from "react";
-import { useIsFocused } from "@react-navigation/native";
+import { StackActions } from "@react-navigation/native";
 import theme from "../styles/theme";
 import DataManager from "../data/DataManager";
 // import react native components
@@ -153,7 +153,8 @@ function CustomListing(props) {
             }
             else {
               commonData.EditListing(data);
-            }
+						}
+						const popAction = StackActions.pop(2);
 						navigate("View Custom Listings");
 					},
 				},
@@ -166,6 +167,21 @@ function CustomListing(props) {
 			]);
 		}
 	};
+
+	const handleDelete = () => {
+		return Alert.alert("Delete listing?", "This action cannot be reversed", [
+				{
+					text: "Cancel",
+				},
+				{
+					text: "Yes",
+          onPress: () => {
+            commonData.DeleteListing(data.id)
+						navigate("View Custom Listings");
+					},
+				},
+			]);
+	}
 
 	const styles = StyleSheet.create({
 		container: {
@@ -194,6 +210,16 @@ function CustomListing(props) {
 		button: {
 			margin: 5,
 		},
+		buttonDiv: {
+			display: 'flex',
+			flexDirection: 'row',
+			justifyContent: 'center',
+			width: '100%',
+		},
+		delete: {
+			margin: 5,
+			width: '50%',
+		}
 	});
 
 	const chooseCategory = (val) => {
@@ -214,8 +240,7 @@ function CustomListing(props) {
 			...data,
 			tags: arr,
 		});
-  };
-  
+	};
 
   React.useEffect(() => {
     if (props.route.params) {
@@ -296,10 +321,23 @@ function CustomListing(props) {
 				renderItem={renderItem}
 				keyExtractor={(item) => item}
 			/>
+			
+			{isEditing
+				? (
+					<View style={styles.buttonDiv}>
+						<Button mode="outlined" style={styles.delete} color="red" onPress={handleDelete}> DELETE </Button>
 
-			<Button mode='contained' style={styles.button} onPress={handleSubmit}>
-				SUBMIT
-			</Button>
+						<Button mode='contained' style={styles.delete} onPress={handleSubmit}>
+							SUBMIT
+						</Button>
+					</View>
+				)
+				: (
+					<Button mode='contained' style={styles.button} onPress={handleSubmit}>
+						SUBMIT
+					</Button>
+				)
+			}
 		</ScrollView>
 	);
 }
