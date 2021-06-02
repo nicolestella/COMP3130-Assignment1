@@ -95,23 +95,18 @@ function MyAccount(props) {
 						style={styles.portal}
 						actions={[
 							{
-								icon: 'plus',
-								label: 'Add Listing',
-								onPress: () => navigate("Add Listing")
+								icon: 'heart-outline',
+								label: 'Save Listing',
+								onPress: () => navigate("Save Listing")
 							},
 							{
-								icon: 'minus',
-								label: 'Remove listing',
-								onPress: () => navigate("Edit Listing", data)
+								icon: 'delete-outline',
+								label: 'Unsave listing',
+								onPress: () => navigate("Unsave Listing", data)
 							},
 							{
-								icon: 'pencil-plus-outline',
-								label: 'Make custom listing',
-								onPress: () => navigate("Custom Listing")
-							},
-							{
-								icon: 'eye-outline',
-								label: 'View custom listings',
+								icon: 'format-list-bulleted',
+								label: 'My custom listings',
 								onPress: () => navigate("View Custom Listings")
 							}
 						]}

@@ -62,7 +62,8 @@ export default class DataManager {
 	}
 
 	AddCustomListing(data) {
-		data.id = (this.customID + 1).toString();
+		this.customID++;
+		data.id = (this.customID).toString();
 		this.travelSpots.push(data);
 	}
 

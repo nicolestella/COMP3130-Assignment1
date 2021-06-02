@@ -18,7 +18,7 @@ export default function CustomCard({ travelSpot, onPress, listingItem, onEdit })
 	return (
 		<Card
 			key={travelSpot.id}
-			style={{ marginTop: 20, width: "95%" }}
+			style={{ marginTop: 20, width: 370 }}
 			onPress={onPress}
 		>
 			{/* The image */}

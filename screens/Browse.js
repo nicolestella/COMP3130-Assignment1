@@ -22,7 +22,11 @@ function Travels(props) {
 
 	// Custom card component that displays each travel spot
 	const cardItem = ({ item }) => (
-		<CustomCard travelSpot={item} onPress={() => navigate("Details", item)} />
+		<CustomCard
+			travelSpot={item}
+			onPress={() => navigate("Details", { data: item })}
+			onEdit={() => navigate('Custom Listing', item)}
+		/>
 	);
 
 	// The function that will return the list of items after search

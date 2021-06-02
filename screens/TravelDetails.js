@@ -3,12 +3,19 @@ import React from "react";
 import { StyleSheet, ScrollView, Image, FlatList } from "react-native";
 import { withTheme, Title, Paragraph, Chip, Button } from "react-native-paper";
 
-function TravelDetails({ route }) {
-	const travelSpot = route.params.data;
+function TravelDetails(props) {
+	const travelSpot = props.route.params.data;
 
 	// Source of the image
-	const imgSrc = {
-		uri: "https://source.unsplash.com/collection/" + travelSpot.collection,
+	const imgSrc = () => {
+
+		if (travelSpot.collection) {
+			return { uri: "https://source.unsplash.com/collection/" + travelSpot.collection };
+		}
+
+		else {
+			return travelSpot.img;
+		}
 	};
 
 	// Tags chips
@@ -20,7 +27,7 @@ function TravelDetails({ route }) {
 
 	return (
 		<ScrollView style={styles.container} contentContainerStyle='space-between'>
-			<Image source={imgSrc} style={styles.image} />
+			<Image source={imgSrc()} style={styles.image} />
 			<Title style={styles.title}>{travelSpot.title}</Title>
 			<Paragraph style={styles.description}>{travelSpot.description}</Paragraph>
 			<FlatList
