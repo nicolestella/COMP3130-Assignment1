@@ -62,7 +62,7 @@ export default class DataManager {
 	}
 
 	AddCustomListing(data) {
-		this.customID++;
+		this.customID += 1;
 		data.id = (this.customID).toString();
 		this.travelSpots.push(data);
 	}
@@ -102,5 +102,16 @@ export default class DataManager {
 
 	GetTravelSpots() {
 		return this.travelSpots;
+	}
+
+	TitleExists(title) {
+		let temp = []
+		temp = this.travelSpots.filter((item) => item.title === title);
+		if (temp.length > 0) {
+			return true;
+		}
+		else {
+			return false;
+		}
 	}
 }

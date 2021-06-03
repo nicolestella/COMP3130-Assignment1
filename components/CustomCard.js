@@ -7,7 +7,7 @@ export default function CustomCard({ travelSpot, onPress, listingItem, onEdit })
 	const imgSrc = () => {
 
 		if (travelSpot.collection) {
-			return { uri: "https://source.unsplash.com/collection/" + travelSpot.collection };
+			return "https://source.unsplash.com/collection/" + travelSpot.collection;
 		}
 
 		else {
@@ -22,7 +22,7 @@ export default function CustomCard({ travelSpot, onPress, listingItem, onEdit })
 			onPress={onPress}
 		>
 			{/* The image */}
-			<Card.Cover source={imgSrc()} />
+			<Card.Cover source={{ uri: imgSrc() }} />
 			<Card.Title title={travelSpot.title} subtitle={travelSpot.country} />
 			<Card.Content>
 				{/* The description */}

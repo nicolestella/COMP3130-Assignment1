@@ -10,7 +10,7 @@ function TravelDetails(props) {
 	const imgSrc = () => {
 
 		if (travelSpot.collection) {
-			return { uri: "https://source.unsplash.com/collection/" + travelSpot.collection };
+			return "https://source.unsplash.com/collection/" + travelSpot.collection;
 		}
 
 		else {
@@ -27,7 +27,7 @@ function TravelDetails(props) {
 
 	return (
 		<ScrollView style={styles.container} contentContainerStyle='space-between'>
-			<Image source={imgSrc()} style={styles.image} />
+			<Image source={{uri: imgSrc()}} style={styles.image} />
 			<Title style={styles.title}>{travelSpot.title}</Title>
 			<Paragraph style={styles.description}>{travelSpot.description}</Paragraph>
 			<FlatList

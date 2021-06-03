@@ -10,6 +10,7 @@ import {
 	Alert,
 	Image,
 	ScrollView,
+	Platform
 } from "react-native";
 import {
 	TextInput,
@@ -19,6 +20,8 @@ import {
 	HelperText,
 } from "react-native-paper";
 import { Picker } from "@react-native-picker/picker";
+import * as ImagePicker from 'expo-image-picker';
+
 
 function CustomListing(props) {
 	const { navigate } = props.navigation;
@@ -33,8 +36,9 @@ function CustomListing(props) {
 		custom: true,
   });
   const [isEditing, setIsEditing] = React.useState(false);
-
 	const [selectedCategory, setSelectedCategory] = React.useState();
+	const [sameTitle, setSameTitle] = React.useState(false);
+	let errorMsg = [];
 
 	const tags = [
 		"Art",
@@ -119,28 +123,7 @@ function CustomListing(props) {
 	};
 
 	const handleSubmit = () => {
-    let temp = [];
-		if (data.title.length < 1) {
-			temp.push("Title");
-		}
-		if (!data.country) {
-			temp.push("Country");
-		}
-		if (data.description.length < 1) {
-			temp.push("Description");
-		}
-		if (data.tags.length < 1) {
-			temp.push("Tags");
-    }
-
-		if (
-			data.country &&
-			data.description.length > 0 &&
-			data.img &&
-			data.title.length > 0 &&
-			data.tags
-    ) {
-      
+		if (errorMsg.length === 0 && !sameTitle) {
 			return Alert.alert("Submit listing?", "", [
 				{
 					text: "Cancel",
@@ -159,8 +142,14 @@ function CustomListing(props) {
 					},
 				},
 			]);
+		} else if (sameTitle) {
+			return Alert.alert("This listing already exists!", "Try using a different name", [
+				{
+					text: "OK",
+				},
+			]);
 		} else {
-			return Alert.alert(displayError(temp), "", [
+			return Alert.alert(displayError(errorMsg), "", [
 				{
 					text: "OK",
 				},
@@ -242,18 +231,72 @@ function CustomListing(props) {
 		});
 	};
 
-  React.useEffect(() => {
+	const pickImage = async () => {
+    let result = await ImagePicker.launchImageLibraryAsync({
+      mediaTypes: ImagePicker.MediaTypeOptions.All,
+      allowsEditing: true,
+      aspect: [4, 3],
+      quality: 1,
+    });
+
+    if (!result.cancelled) {
+			setData({
+				...data,
+				img: result.uri
+			});
+    }
+  };
+
+	React.useEffect(() => {
+		 (async () => {
+      if (Platform.OS !== 'web') {
+        const { status } = await ImagePicker.requestMediaLibraryPermissionsAsync();
+        if (status !== 'granted') {
+          alert('Sorry, we need camera roll permissions to make this work!');
+        }
+      }
+		})();
+		
 		if (props.route.params) {
 			if (props.route.params.title) {
 				setData(props.route.params);
 				setIsEditing(true);
 			}
     }
-  },[])
+	}, [])
+	
+	React.useEffect(() => {
+		setSameTitle(commonData.TitleExists(data.title));
+
+		if (!data.img) {
+			errorMsg.push("Image");
+		}
+		if (data.title.length < 1) {
+			errorMsg.push("Title");
+		}
+		if (data.country.length < 1) {
+			errorMsg.push("Country");
+		}
+		if (data.description.length < 1) {
+			errorMsg.push("Description");
+		}
+		if (data.tags.length < 1) {
+			errorMsg.push("Tags");
+    }
+	}, [data])
 
 	return (
 		<ScrollView style={styles.container}>
-			{data.img ? <Image source={data.img} style={styles.image} /> : null}
+			{data.img && <Image source={{uri: data.img}} style={styles.image} />}
+			<Button
+				mode="outlined"
+				icon="camera-outline"
+				onPress={pickImage}
+				style={styles.button}
+				color="grey"
+			>
+				Choose your image
+			</Button>
 			<TextInput
 				label='Title*'
 				mode='outlined'
@@ -262,9 +305,6 @@ function CustomListing(props) {
 					setData({
 						...data,
 						title: text,
-						img: {
-							uri: `https://source.unsplash.com/weekly?${formatText(text)}`,
-						},
 					})
 				}
 			/>
@@ -275,6 +315,7 @@ function CustomListing(props) {
 			<Paragraph style={styles.heading}>Choose a country*</Paragraph>
 			<View style={styles.pickerView}>
 				<Picker
+					prompt="Choose the country"
 					style={{ width: "100%", height: "100%" }}
 					selectedValue={data.country}
 					onValueChange={(val, index) => {
@@ -306,6 +347,7 @@ function CustomListing(props) {
 			<Paragraph style={styles.heading}>Choose up to 3 tags*</Paragraph>
 			<View style={styles.pickerView}>
 				<Picker
+					prompt="Choose your tags"
 					style={{ width: "100%" }}
 					selectedValue={selectedCategory}
 					onValueChange={(val, index) => {
